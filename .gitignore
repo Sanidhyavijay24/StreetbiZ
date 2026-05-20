@@ -31,7 +31,16 @@ yarn-error.*
 *.pem
 
 # local env files
+.env
 .env*.local
+.env.production
+
+# internal engineering ledger
+context.md
+
+# build plan docs (not shipped)
+StreetBiz_Build_Plan.md
+streetbiz_build_plan.html
 
 # typescript
 *.tsbuildinfo
