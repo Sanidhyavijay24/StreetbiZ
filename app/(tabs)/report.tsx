@@ -1,4 +1,11 @@
-import { View, Text, StyleSheet } from 'react-native';
+/**
+ * @file report.tsx
+ * @description Weekly summary and credit report PDF generation screen.
+ *              (Stub — PDF generation will be implemented next.)
+ * @module app/(tabs)/report
+ */
+
+import { StyleSheet, Text, View } from 'react-native';
 
 export default function ReportScreen() {
   return (
@@ -11,5 +18,5 @@ export default function ReportScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
-  title: { fontSize: 20, fontWeight: 'bold' }
+  title: { fontSize: 20, fontWeight: 'bold' },
 });

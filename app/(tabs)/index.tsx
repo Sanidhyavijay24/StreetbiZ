@@ -1,14 +1,17 @@
-import { StyleSheet } from 'react-native';
+/**
+ * @file index.tsx
+ * @description Home dashboard — daily P&L snapshot with metric cards.
+ *              (Stub — will be fully implemented in the next phase.)
+ * @module app/(tabs)/index
+ */
 
-import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
+import { StyleSheet, Text, View } from 'react-native';
 
-export default function TabOneScreen() {
+export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
+      <Text style={styles.title}>Home Dashboard</Text>
+      <Text>Daily P&L snapshot will go here.</Text>
     </View>
   );
 }
@@ -22,10 +25,5 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
   },
 });
