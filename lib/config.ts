@@ -19,5 +19,5 @@ export const CONFIG = {
   OLLAMA_MODEL: 'gemma4:e2b',
 
   /** Default currency code when none is specified by the vendor. */
-  DEFAULT_CURRENCY: 'NGN',
+  DEFAULT_CURRENCY: 'USD',
 } as const;
