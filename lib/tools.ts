@@ -8,6 +8,7 @@
 
 import { CONFIG } from './config';
 import { getPnL } from './db';
+import { generateCreditReportPDF } from './pdf';
 import type {
   AddInventoryItemArgs,
   ExplainTaxThresholdArgs,
@@ -205,15 +206,25 @@ export async function dispatchTool(
         [`-${days} days`],
       );
 
-      // TODO: Wire to lib/pdf.ts once implemented to produce the
-      // actual PDF file.  For now return the data so the model can
-      // summarise it in chat.
-      return {
-        ok: true,
-        period_months: months,
-        monthly_data: monthlyData,
-        note: 'PDF generation is not yet wired — data returned for chat summary.',
-      };
+      try {
+        const filePath = await generateCreditReportPDF(months);
+        return {
+          ok: true,
+          period_months: months,
+          monthly_data: monthlyData,
+          pdf_path: filePath,
+          note: 'PDF generated successfully.',
+        };
+      } catch (pdfErr) {
+        console.error('[tools] PDF generation failed, returning data only:', pdfErr);
+        return {
+          ok: true,
+          period_months: months,
+          monthly_data: monthlyData,
+          error: pdfErr instanceof Error ? pdfErr.message : 'PDF generation failed',
+          note: 'Data retrieved but PDF file creation failed.',
+        };
+      }
     }
 
     default:
