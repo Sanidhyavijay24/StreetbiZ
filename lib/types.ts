@@ -36,6 +36,8 @@ export interface SettingRow {
 export interface OllamaMessage {
   role: 'system' | 'user' | 'assistant' | 'tool';
   content: string | OllamaContentPart[];
+  name?: string;
+  tool_call_id?: string;
   tool_calls?: OllamaToolCall[];
 }
 
