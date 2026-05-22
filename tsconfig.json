@@ -6,12 +6,23 @@
       "@/*": [
         "./*"
       ]
-    }
+    },
+    "baseUrl": ".",
+    "types": [
+      "bun-types"
+    ]
   },
   "include": [
     "**/*.ts",
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "run-tests.ts",
+    "bun-mock.ts",
+    "react-native-mock.ts",
+    "expo-sqlite-mock.ts"
   ]
 }
